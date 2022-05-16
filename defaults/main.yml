@@ -1,0 +1,20 @@
+---
+# defaults file for kluctl
+kluctl_ver: 2.10.2
+kluctl_mirror: https://github.com/kluctl/kluctl/releases/download
+kluctl_os: linux
+kluctl_arch: amd64
+kluctl_parent_install_dir: /usr/local
+kluctl_checksums:
+  # https://github.com/kluctl/kluctl/releases/download/v2.10.2/kluctl_v2.10.2_checksums.txt
+  '2.10.2':
+    # https://github.com/kluctl/kluctl/releases/download/v2.10.2/kluctl_v2.10.2_darwin_amd64.tar.gz
+    darwin_amd64: sha256:595d7f37b94fcb308e06de1ed85adddbd2fd713d5f58525adf70f3d8f710854d
+    # https://github.com/kluctl/kluctl/releases/download/v2.10.2/kluctl_v2.10.2_darwin_arm64.tar.gz
+    darwin_arm64: sha256:2f33bdfbf2778fc94b6dc95ca9ec5bbf774dcb2518451318319f8d4a0984a67d
+    # https://github.com/kluctl/kluctl/releases/download/v2.10.2/kluctl_v2.10.2_linux_amd64.tar.gz
+    linux_amd64: sha256:66e2201adfb511dc93919ee51850f1489626fc2beefa6282a9e2bba3747458bf
+    # https://github.com/kluctl/kluctl/releases/download/v2.10.2/kluctl_v2.10.2_linux_arm64.tar.gz
+    linux_arm64: sha256:208e4606afb06bee979159d3454bdaf562d79051b2bf5f17e168ed950ae5056c
+    # https://github.com/kluctl/kluctl/releases/download/v2.10.2/kluctl_v2.10.2_windows_amd64.zip
+    windows_amd64: sha256:88dfa56469089309a9961b75e13d3458d1cc6d6fe978eb0af7d47298ea103a83

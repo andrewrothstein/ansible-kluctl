@@ -1,0 +1,56 @@
+---
+- name: resolve platform specific vars
+  include_vars: '{{ item }}'
+  with_first_found:
+    - files:
+        - '{{ ansible_distribution }}-{{ ansible_distribution_release }}.yml'
+        - '{{ ansible_distribution }}.yml'
+        - '{{ ansible_os_family }}.yml'
+      skip: true
+      paths:
+        - '{{ role_path }}/vars'
+- name: check for install at {{ kluctl_install_exe }}
+  become: true
+  stat:
+    path: '{{ kluctl_install_exe }}'
+  changed_when: false
+  register: kluctl_binary
+- when: not kluctl_binary.stat.exists
+  block:
+    - name: downloading {{ kluctl_url }} to {{ kluctl_tmp_archive }}
+      become: true
+      become_user: root
+      get_url:
+        url: '{{ kluctl_url }}'
+        dest: '{{ kluctl_tmp_archive }}'
+        checksum: '{{ kluctl_checksum }}'
+        mode: 0644
+    - name: mkdir {{ kluctl_install_dir }}
+      become: true
+      become_user: root
+      file:
+        path: '{{ kluctl_install_dir }}'
+        state: directory
+        mode: 0755
+    - name: unarchive {{ kluctl_tmp_archive }} into {{ kluctl_install_dir }}
+      become: true
+      become_user: root
+      unarchive:
+        remote_src: true
+        src: '{{ kluctl_tmp_archive }}'
+        dest: '{{ kluctl_install_dir }}'
+        creates: '{{ kluctl_install_exe }}'
+  always:
+    - name: rm {{ kluctl_tmp_archive }}
+      become: true
+      become_user: root
+      file:
+        path: '{{ kluctl_tmp_archive }}'
+        state: absent
+- name: linking {{ kluctl_install_link }} to {{ kluctl_install_exe }}
+  become: true
+  become_user: root
+  file:
+    src: '{{ kluctl_install_exe }}'
+    dest: '{{ kluctl_install_link }}'
+    state: link

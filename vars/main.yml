@@ -1,0 +1,11 @@
+---
+# vars file for kluctl
+kluctl_platform: '{{ kluctl_os }}_{{ kluctl_arch }}'
+kluctl_name: kluctl_v{{ kluctl_ver }}_{{ kluctl_platform }}
+kluctl_archive: '{{ kluctl_name }}.{{ kluctl_archive_type | default("tar.gz") }}'
+kluctl_tmp_archive: '{{ kluctl_tmp_dir | default("/tmp") }}/{{ kluctl_archive }}'
+kluctl_url: '{{ kluctl_mirror }}/v{{ kluctl_ver }}/{{ kluctl_archive }}'
+kluctl_checksum: '{{ kluctl_checksums[kluctl_ver][kluctl_platform] }}'
+kluctl_install_dir: '{{ kluctl_parent_install_dir }}/{{ kluctl_name }}'
+kluctl_install_exe: '{{ kluctl_install_dir }}/kluctl'
+kluctl_install_link: '{{ kluctl_parent_install_dir }}/bin/kluctl'
