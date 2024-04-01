@@ -1,5 +1,7 @@
 ---
 # vars file for kluctl
+kluctl_os: '{{ ansible_system | lower }}'
+kluctl_arch: '{{ kluctl_arch_map[ansible_architecture] }}'
 kluctl_platform: '{{ kluctl_os }}_{{ kluctl_arch }}'
 kluctl_name: kluctl_v{{ kluctl_ver }}_{{ kluctl_platform }}
 kluctl_archive: '{{ kluctl_name }}.{{ kluctl_archive_type | default("tar.gz") }}'
