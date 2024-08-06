@@ -1,6 +1,6 @@
 ---
 # defaults file for kluctl
-kluctl_ver: 2.23.5
+kluctl_ver: 2.25.1
 kluctl_mirror: https://github.com/kluctl/kluctl/releases/download
 kluctl_arch_map:
   aarch64: arm64
@@ -32,3 +32,15 @@ kluctl_checksums:
     linux_arm64: sha256:7cd8c3e8808d452835689e6293c6334ed46f0870104dea978ea479dba0b031ab
     # https://github.com/kluctl/kluctl/releases/download/v2.23.5/kluctl_v2.23.5_windows_amd64.zip
     windows_amd64: sha256:24916877249c136a0795d3a039f0e1d31c6441e91cd5817030a17f3c8730a53b
+  # https://github.com/kluctl/kluctl/releases/download/v2.25.1/kluctl_v2.25.1_checksums.txt
+  '2.25.1':
+    # https://github.com/kluctl/kluctl/releases/download/v2.25.1/kluctl_v2.25.1_darwin_amd64.tar.gz
+    darwin_amd64: sha256:57114365a9a45b524f36304959d29cf26d20b285b01326115877cde2c1e1e173
+    # https://github.com/kluctl/kluctl/releases/download/v2.25.1/kluctl_v2.25.1_darwin_arm64.tar.gz
+    darwin_arm64: sha256:786d871a87cb24b28adf2fb16eb4480ad835bbba75b4d80becaaa38be7bb0edc
+    # https://github.com/kluctl/kluctl/releases/download/v2.25.1/kluctl_v2.25.1_linux_amd64.tar.gz
+    linux_amd64: sha256:9d118114f2be8916d1c068f0279de8acdf6553d4b38b54d0fb36a2699c44bd5b
+    # https://github.com/kluctl/kluctl/releases/download/v2.25.1/kluctl_v2.25.1_linux_arm64.tar.gz
+    linux_arm64: sha256:4293457ce56054a6850b3a306707400efed7d885ce22d97473fe8657aef5e58f
+    # https://github.com/kluctl/kluctl/releases/download/v2.25.1/kluctl_v2.25.1_windows_amd64.zip
+    windows_amd64: sha256:1c68982bbf09b936d1bf1cc07dabd1b613ccd1dd79e3f845230c297faa05c353

@@ -1,7 +1,4 @@
 ---
-- name: Installing andrewrothstein.unarchivedeps
-  ansible.builtin.include_role:
-    name: andrewrothstein.unarchivedeps
 - name: Resolve platform specific vars
   ansible.builtin.include_vars: '{{ item }}'
   with_first_found:
@@ -36,6 +33,9 @@
         path: '{{ kluctl_install_dir }}'
         state: directory
         mode: '755'
+    - name: Installing andrewrothstein.unarchivedeps
+      ansible.builtin.include_role:
+        name: andrewrothstein.unarchivedeps
     - name: Unarchive {{ kluctl_tmp_archive }} into {{ kluctl_install_dir }}
       become: true
       become_user: root
